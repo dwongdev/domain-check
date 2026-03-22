@@ -56,9 +56,7 @@ async fn check_single_domain_concurrent(
                         // Only trust "available" if BOTH protocols agree.
                         // RDAP 404 alone is not reliable — some registries
                         // (e.g. .moe) return 404 for registered domains.
-                        if rdap_error.indicates_available()
-                            && whois_error.indicates_available()
-                        {
+                        if rdap_error.indicates_available() && whois_error.indicates_available() {
                             Ok(DomainResult {
                                 domain: domain.to_string(),
                                 available: Some(true),
@@ -279,8 +277,7 @@ impl DomainChecker {
                             // Only trust "available" if BOTH protocols agree.
                             // RDAP 404 alone is not reliable — some registries
                             // (e.g. .moe) return 404 for registered domains.
-                            if rdap_error.indicates_available()
-                                && whois_error.indicates_available()
+                            if rdap_error.indicates_available() && whois_error.indicates_available()
                             {
                                 Ok(DomainResult {
                                     domain: domain.to_string(),
